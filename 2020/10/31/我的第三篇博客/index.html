@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: Robot Vison | 付康龙的博客</title>
+  <title>静态成员函数 | 付康龙的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="有志者，事竟成！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="付康龙的博客">
-<meta property="og:url" content="http://example.com/tags/Robot-Vison/index.html">
+  <meta name="description" content="1、静态成员变量和静态成员函数静态成员：在说明前面加了static关键字的成员。 普通成员变量每个对象有各自的一份，而静态成员变量一共就一份，为所有对象共享。 sizeof  运算符不会就算静态成员变量。 123456class CMyclass &amp;#123;    int n;    static int s;&amp;#125;;则sizeof(CMyclass)等于4  （1） 基本概念1）普通成员">
+<meta property="og:type" content="article">
+<meta property="og:title" content="静态成员函数">
+<meta property="og:url" content="http://example.com/2020/10/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="付康龙的博客">
-<meta property="og:description" content="有志者，事竟成！">
+<meta property="og:description" content="1、静态成员变量和静态成员函数静态成员：在说明前面加了static关键字的成员。 普通成员变量每个对象有各自的一份，而静态成员变量一共就一份，为所有对象共享。 sizeof  运算符不会就算静态成员变量。 123456class CMyclass &amp;#123;    int n;    static int s;&amp;#125;;则sizeof(CMyclass)等于4  （1） 基本概念1）普通成员">
 <meta property="og:locale">
+<meta property="article:published_time" content="2020-10-31T09:46:46.000Z">
+<meta property="article:modified_time" content="2020-10-31T10:31:12.906Z">
 <meta property="article:author" content="FU Kanglong">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="付康龙的博客" type="application/atom+xml">
@@ -142,60 +145,258 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-我的第三篇博客" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-10-31T09:46:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第二篇博客</a>
+    <h1 class="article-title" itemprop="name">
+      静态成员函数
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/10/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
+  	<time datetime="2020-10-31T09:46:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、静态成员变量和静态成员函数"><a href="#1、静态成员变量和静态成员函数" class="headerlink" title="1、静态成员变量和静态成员函数"></a>1、静态成员变量和静态成员函数</h3><p>静态成员：在说明前面加了static关键字的成员。</p>
+<p>普通成员变量每个对象有各自的一份，而静态成员变量一共就一份，为所有对象共享。</p>
+<p>sizeof  运算符不会就算静态成员变量。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CMyclass</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> s;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">则<span class="keyword">sizeof</span>(CMyclass)等于<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="（1）-基本概念"><a href="#（1）-基本概念" class="headerlink" title="（1） 基本概念"></a>（1） 基本概念</h4><p>1）普通成员变量每个对象有各自的一份，而静态成员变量一共就一份，为所有变量共享。</p>
+<p>2） 普通常用函数必须具体作用于某个对象，而静态成员函数并不具体作用于某个对象。因此，静态成员不需要通过对象就能访问。</p>
+<h4 id="（2）-访问静态成员"><a href="#（2）-访问静态成员" class="headerlink" title="（2） 访问静态成员"></a>（2） 访问静态成员</h4><p>1） 类名：：成员名</p>
+<p><code>CRectangle::PrintTotal();</code></p>
+<p>2） 对象名.成员名</p>
+<p><code>CRectangle r;  r.PrintTotal();</code></p>
+<p>3） 指针-&gt;成员名</p>
+<p><code>CRectangle *p = &amp;r; p-&gt;PrintTotal();</code></p>
+<p>4） 引用.成员名</p>
+<p><code>CRectangle &amp;ref = r; int n = ref.nTotalNumber</code>;</p>
+<p>静态成员这种机制的目的是将和某些类密切相关的全局变量和函数写到类里面，看上去像一个整体，易于维护和理解。静态成员函数本质是全局函数。</p>
+<h4 id="（3）-示例"><a href="#（3）-示例" class="headerlink" title="（3） 示例"></a>（3） 示例</h4><p>考虑一个需要随时知道矩形总数和总面积的图形处理程序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CRectangle</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> w, h;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> nTotalArea;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> nTotalNumber;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CRectangle(<span class="keyword">int</span> w_, <span class="keyword">int</span> h_);</span><br><span class="line">    ~CRectangle();</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">PrintTotal</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">CRectangle::CRectangle(<span class="keyword">int</span> w_, <span class="keyword">int</span> h_) &#123;</span><br><span class="line">    w = w_;</span><br><span class="line">    h = h_;</span><br><span class="line">    nTotalNumber++;</span><br><span class="line">    nTotalArea += w*h;</span><br><span class="line">&#125;</span><br><span class="line">CRctangle::~CRctangle() &#123;</span><br><span class="line">    nTotalNumber--;</span><br><span class="line">    nTotalArea -= w*h;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CRectangle::PrintTotal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; nTotalNumber &lt;&lt; <span class="string">&quot;,&quot;</span> &lt;&lt; nTotalArea &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> CRectangle::nTotalNumber = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> CRectangle::nTotalArea = <span class="number">0</span>;<span class="comment">//必须在定义类的文件中对静态成员变量进行一次说明或初始化，否则编译能通过，链接不能通过。</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    CRectangle r1(3,3), r2(2,2);</span><br><span class="line">    <span class="comment">//cout &lt;&lt; CRectangle::nTotalNumber; //wrong ,私有</span></span><br><span class="line">    CRectangle::PrintTotal();</span><br><span class="line">    r1.PrintTotal();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在静态成员函数中，不能访问非静态成员变量，也不能调用非静态成员函数。</p>
+<p>在使用CRectangle类时，有时会调用复制构造函数生成临时的隐藏的CRectangle对象</p>
+<p>1）调用一个以CRectangle类为对象作为参数的函数时</p>
+<p>2） 调用一个以CRectangle类对象作为返回值的函数时</p>
+<p>临时对象在消亡时会调用析构函数，减少nTotaNumber和nTotalArea的值，可是这些临时对象在生成时却没有zeng加nTotalNumber和nTotArea的值。</p>
+<p>解决方法：为CRectangle类写一个复制构造函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CRectangle::CRectangle(CRectangle &amp;r) &#123;</span><br><span class="line">    w = r.w; h = r.h;</span><br><span class="line">    nTotalNumber++;</span><br><span class="line">    nTotalArea += w*h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、成员对象和封闭类"><a href="#2、成员对象和封闭类" class="headerlink" title="2、成员对象和封闭类"></a>2、成员对象和封闭类</h3><h4 id="（1）-成员对象"><a href="#（1）-成员对象" class="headerlink" title="（1） 成员对象"></a>（1） 成员对象</h4><p>成员对象：一个类的成员变量是另一个类的对象。</p>
+<p>包含成员对象的类叫封闭类。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CTyre</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> radius; <span class="comment">//半径</span></span><br><span class="line">    <span class="keyword">int</span> width;<span class="comment">//宽度</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CTyre(<span class="keyword">int</span> r, <span class="keyword">int</span> w):radius(r), width(w) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CEngine</span> &#123;</span><span class="comment">//引擎类</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CCar</span> &#123;</span><span class="comment">//汽车类-&gt;&quot;封闭类&quot;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> price;</span><br><span class="line">    CTyre type;</span><br><span class="line">    CEngine engine;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CCar(<span class="keyword">int</span> p, <span class="keyword">int</span> tr, <span class="keyword">int</span> tw);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">CCar::CCar(<span class="keyword">int</span> p, <span class="keyword">int</span> tr, <span class="keyword">int</span> w):price(p), tyre(tr,w) &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">CCar <span class="title">car</span><span class="params">(<span class="number">20000</span>,<span class="number">17</span>,<span class="number">225</span>)</span></span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）-调用顺序"><a href="#（2）-调用顺序" class="headerlink" title="（2） 调用顺序"></a>（2） 调用顺序</h4><p>当封闭类对象生成时：</p>
+<p>1）先执行所有成员对象的构造函数</p>
+<p>2）后执行封闭类的构造函数</p>
+<p>成员对象的构造函数调用顺序：</p>
+<p>1）和成员对象在类中的说明顺序一致</p>
+<p>2）与在成员初始化列表中出现的顺序无关</p>
+<p>当封闭类的对象消亡时：</p>
+<p>1）先执行封闭类的析构函数</p>
+<p>2）后执行成员对象的析构函数</p>
+<p>析构函数顺序和构造函数的调用顺序相反</p>
+<h4 id="（3）-封闭类例子"><a href="#（3）-封闭类例子" class="headerlink" title="（3） 封闭类例子"></a>（3） 封闭类例子</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ctyre</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CTyre() &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;CTyre contructor&quot;</span> &lt;&lt; <span class="built_in">endl</span>;&#125;</span><br><span class="line">    ~CTyre() &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;CTyre destructor&quot;</span> &lt;&lt; <span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CEngine</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CEngine() &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;CEngine contrucot&quot;</span> &lt;&lt; <span class="built_in">endl</span>;&#125;</span><br><span class="line">    ~CEngine() &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;CEngine destructor&quot;</span> &lt;&lt; <span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CCar</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    CEngine engine;</span><br><span class="line">    CTyre tyre;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CCar() &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;CCar contructor&quot;</span> &lt;&lt; <span class="built_in">endl</span>;&#125;</span><br><span class="line">    ~CCar() &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;CCar destructor&quot;</span> &lt;&lt; <span class="built_in">endl</span>;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    CCar car;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//程序输出结果：</span></span><br><span class="line">CEngine contrucot</span><br><span class="line">CTyre contructor</span><br><span class="line">CCar contructor</span><br><span class="line">CCar destructor</span><br><span class="line">CTyre destructor</span><br><span class="line">CEngine destructor</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、友元"><a href="#3、友元" class="headerlink" title="3、友元"></a>3、友元</h3><h4 id="（1）-友元函数"><a href="#（1）-友元函数" class="headerlink" title="（1） 友元函数"></a>（1） 友元函数</h4><p>一个类的友元函数可以访问该类的私有成员。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CCar</span>;</span> <span class="comment">//提前声明CCar类，以便后面CDriver类的使用</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CDriver</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">MoidfyCar</span><span class="params">(CCar* pcar)</span></span>;<span class="comment">//改装汽车</span></span><br><span class="line">&#125;；</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CCar</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> price;</span><br><span class="line"><span class="function"><span class="keyword">friend</span> <span class="keyword">int</span> <span class="title">MostExpensiveCar</span><span class="params">(CCar cars[], <span class="keyword">int</span> total)</span></span>;<span class="comment">//声明友元</span></span><br><span class="line"><span class="function"><span class="keyword">friend</span> <span class="keyword">void</span> <span class="title">CDriver::ModifyCar</span><span class="params">(CCar* pCar)</span></span>;<span class="comment">//声明友元</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CDriver::ModifyCar</span><span class="params">(CCar* pCar)</span> </span>&#123;</span><br><span class="line">    pCar -&gt; price += <span class="number">100</span>;<span class="comment">//汽车改装后价值增加</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MostExpensiveCar</span><span class="params">(CCar cars[], <span class="keyword">int</span> total)</span> </span>&#123;<span class="comment">//求最贵汽车的价格</span></span><br><span class="line">	<span class="keyword">int</span> tmpMax = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; total; ++i) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (cars&#123;i&#125;.price &gt; tmpMax)</span><br><span class="line">            tmpMax = cars[i].price;</span><br><span class="line">        <span class="keyword">return</span> tmpMax;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将一个类的成员函数（包含构造、析构函数）-&gt; 另一个类的友元</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">function</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="keyword">void</span> <span class="title">B::function</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）-友元类"><a href="#（2）-友元类" class="headerlink" title="（2） 友元类"></a>（2） 友元类</h4><p>A是B的友元类-&gt;A的成员函数可以访问B的私有成员</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CCar</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> price;</span><br><span class="line"><span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">CDriver</span>;</span><span class="comment">//声明CDriver为友元类</span></span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CDriver</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CCar myCar;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">MoidfyCar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	myCar.price += <span class="number">10000</span>;<span class="comment">//CDriver是CCar的友元类-&gt;可以访问其私有成员</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（3）-this指针"><a href="#（3）-this指针" class="headerlink" title="（3） this指针"></a>（3） this指针</h4><p>this 指针的作用</p>
+<p>其作用就是指向成员函数所作用的对象。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CCar</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> price;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SetPrice</span><span class="params">(<span class="keyword">int</span> p)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CCar::SetPrice</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    prince = p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    CCar car;</span><br><span class="line">    car.SetPrice(<span class="number">20000</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">CCar</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> price;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SetPrice</span><span class="params">(struct CCar *<span class="keyword">this</span>, <span class="keyword">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;price = p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">CCar</span> <span class="title">car</span>;</span></span><br><span class="line">    SerPrice(&amp;car, <span class="number">200000</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li> 非静态成员函数中可以直接使用this来代表指向该函数作用的对象的指针</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Complex</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">double</span> real, imag;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Print</span><span class="params">()</span> </span>&#123;<span class="built_in">cout</span> &lt;&lt; real &lt;&lt; <span class="string">&quot;,&quot;</span> &lt;&lt; imag;&#125;</span><br><span class="line">    Complex(<span class="keyword">double</span> r, <span class="keyword">double</span> i): real(r), image(i) &#123;&#125;</span><br><span class="line">    <span class="function">Complex <span class="title">AddOne</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;real++; <span class="comment">//等价于real++</span></span><br><span class="line">        <span class="keyword">this</span>-&gt;Print(); <span class="comment">//等价于Print</span></span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Complex c1(1,1), c2(0,0);</span><br><span class="line">    c2 = c1.AddOne();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;<span class="comment">// 输出2,1</span></span><br></pre></td></tr></table></figure>
+
+<p>2） 注意： 静态成员函数中不能使用this指针。因为静态成员函数并不具体作用于某个对象！因此，静态成员函数的真是参数的个数，就是程序中写出的参数个数！</p>
+<h3 id="4、常量对象、常量成员函数、常引用"><a href="#4、常量对象、常量成员函数、常引用" class="headerlink" title="4、常量对象、常量成员函数、常引用"></a>4、常量对象、常量成员函数、常引用</h3><h4 id="（1）-常量对象"><a href="#（1）-常量对象" class="headerlink" title="（1） 常量对象"></a>（1） 常量对象</h4><p>如果不希望某个对象的值被改变，则定义该对象的时候可以在前面加const关键字</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SetValue</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> Demo Obj;<span class="comment">// 常量对象</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）-常量成员函数"><a href="#（2）-常量成员函数" class="headerlink" title="（2） 常量成员函数"></a>（2） 常量成员函数</h4><p>在该类的成员函数说明后面可以加const关键字，则该成员函数成为常量成员函数。</p>
+<p>常量成员函数在执行期间不应该修改其所作用的对象。因此，在常量成员函数中不能修改成员变量的值（静态成员变量除外），也不能调用同类的非常量成员函数（静态成员函数除外）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sample</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">GetValue</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">    Sample() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sample::GetValue</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    value = <span class="number">0</span>; <span class="comment">//wrong</span></span><br><span class="line">    func(); <span class="comment">//wrong</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">const</span> Sample o;</span><br><span class="line">    o.value = <span class="number">100</span>;<span class="comment">//error, 常量对象不可被修改</span></span><br><span class="line">    o.func();     <span class="comment">//error, 常量对象上面不能执行费常量成员函数</span></span><br><span class="line">    o.GerValue(); <span class="comment">//ok, 常量对象上可以执行常量成员函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>常量成员函数的重载</p>
+<p>两个成员函数，名字和参数表都一样，但是一个是const， 一个不是，算重载。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CTest</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CTest() &#123;n=<span class="number">1</span>;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">GerValue</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;<span class="keyword">return</span> n;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">GetValue</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> <span class="number">2</span>*n;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> CTest objTest1;</span><br><span class="line">    CTest objTest2;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; objTest1.GetValue() &lt;&lt; <span class="string">&quot;,&quot;</span> &lt;&lt; objTest2.GetValue();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（3）-常引用"><a href="#（3）-常引用" class="headerlink" title="（3） 常引用"></a>（3） 常引用</h4><p>引用前面可以加const关键字，称为常引用。不能通过常引用，修改其引用的变量。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>&amp; r = n;</span><br><span class="line">r = <span class="number">5</span>;<span class="comment">//error</span></span><br><span class="line">n = <span class="number">4</span>;<span class="comment">//ok</span></span><br></pre></td></tr></table></figure>
+
+<p>对象作为函数的参数时，生成该参数需要调用复制构造函数，效率比较低。用指针做参数，代码又不好看，如何解决？？？</p>
+<p>可以用对象的引用作为参数，如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sample</span> &#123;</span></span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintfObj</span><span class="params">(Sample &amp; <span class="number">0</span>)</span> </span>&#123;</span><br><span class="line">    .......对象引用作为函数参数有一定风险性，若函数中不小心修改了形参o，则实参也跟着变，这可能不是我们想要的，如果避免？</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sample</span> &#123;</span></span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintfObj</span><span class="params">(<span class="keyword">const</span> Sample &amp; o)</span> </span>&#123;</span><br><span class="line">    .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Robot Vison</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/10/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          内联函数
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/10/31/%E6%88%91%E7%9A%84%E7%AC%AC%E5%9B%9B%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">运算符重载</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -218,9 +419,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -281,10 +482,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Robot Vison</a>
               </li>
             
             <div class="clearfix"></div>
